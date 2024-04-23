@@ -20,7 +20,7 @@
       <a href="login.php" class="btn">login</a>
       <a href="register.php" class="btn">register</a>
       <form action="" method="post">
-        <button type="submit" name="logout" class="logout-btnn">log out</button>
+        <button type="submit" name="logout" class="logout-btn">log out</button>
       </form>
     </div>
   </div>
