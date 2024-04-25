@@ -1,5 +1,5 @@
 <?php
- include 'connection.php' ;
+ include './componets/connection.php' ;
 ?>
 <style type="text/css">
     <?php include 'style.css' ; ?>
@@ -15,7 +15,7 @@
     <div class ="main-container">
         <section class ="form-container">
             <div class ="title">
-                <img src ="c:\xampp\htdocs\E.Commerce\img\download.png">
+                <img src =".\img\download.png">
                 <h1> Register now </h1>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur odio eius nemo exercitationem dolore voluptates ab qui aspernatur dolorem. Labore porro repellendus corrupti hic soluta, est culpa ducimus rem expedita.</p>
             </div>
