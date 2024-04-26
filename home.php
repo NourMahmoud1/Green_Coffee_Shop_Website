@@ -28,7 +28,7 @@
           <div class="hero-dec-bottom"></div>
         </div>
         <!-- slider end -->
-        <div class="slider__slider slide2">
+      <div class="slider__slider slide2">
           <div class="overlay"></div>
           <div class="slide-detail">
             <h1>welcome to my shop</h1>

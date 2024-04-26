@@ -99,7 +99,7 @@ img {vertical-align: middle;}
 
 <div class="slideshow-container" style="">
 
-<div class="mySlides fade">
+<div class="mySlides fade" >
   <div class="numbertext">1 / 3</div>
   <img src="../../project_internet/img/slider.jpg" style="width:100%" alt="">
   <div class="text">Caption Text</div>
