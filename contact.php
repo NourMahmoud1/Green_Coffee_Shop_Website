@@ -1,5 +1,5 @@
 
-<?php include 
+<?php  
   include 'componets/connection.php';
   ?>
 <style type="text/css">
