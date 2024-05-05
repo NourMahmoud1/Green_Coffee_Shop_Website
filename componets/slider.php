@@ -3,14 +3,22 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
+/* * {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0} */
+.mySlides {display: none;
+
+}
+.img {
+  vertical-align: middle;
+  height: 80vh;
+
+}
 
 /* Slideshow container */
 .slideshow-container {
-  max-width: 1000px;
+  /* max-width: 1000px; */
+  /* height: 80vh; */
+
   position: relative;
   margin: auto;
 }
@@ -85,13 +93,14 @@ img {vertical-align: middle;}
 }
 
 @keyframes fade {
-  from {opacity: .4} 
+  from {opacity: .8} 
   to {opacity: 1}
 }
 
 /* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+@media only screen and (max-width: 400px) {
+  .prev, .next,.text {font-size: 11px;}
+  .img{ height: 55vh;}
 }
 </style>
 </head>
@@ -101,19 +110,19 @@ img {vertical-align: middle;}
 
 <div class="mySlides fade" >
   <div class="numbertext">1 / 3</div>
-  <img src="../../project_internet/img/slider.jpg" style="width:100%" alt="">
+  <img class="img" src="../../project_internet/img/slider.jpg" style="width:100%" alt="">
   <div class="text">Caption Text</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <img src="../../project_internet/img/slider2.jpg" style="width:100%" alt="">
+  <img class="img" src="../../project_internet/img/1.png" style="width:100%" alt="">
   <div class="text">Caption Two</div>
-</div>
+</div>  
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
-  <img src="../../project_internet/img/slider.jpg" style="width:100%" alt="">
+  <img class="img" src="../../project_internet/img/9.jpg" style="width:100%" alt="">
   <div class="text">Caption Three</div>
 </div>
 
@@ -133,22 +142,28 @@ img {vertical-align: middle;}
 let slideIndex = 1;
 showSlides(slideIndex);
 
-function plusSlides(n) {
+setInterval(function plusSlides(n = 1) {
   showSlides(slideIndex += n);
-}
+},5000);
 
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
+// setInterval(plusSlides, 6000);
 
+/*-----------------reset time to scroll right-----------------*/
+// function resetTimer() {
+//   // clearInterval(timerI);
+//   timerI = setInterval(showSlides(), 7000);
+// }
 function showSlides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
+  if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}
   for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";  
+    slides[i].style.display = "none";
   }
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
@@ -156,6 +171,8 @@ function showSlides(n) {
   slides[slideIndex-1].style.display = "block";  
   dots[slideIndex-1].className += " active";
 }
+
+
 </script>
 
 </body>

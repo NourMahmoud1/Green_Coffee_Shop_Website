@@ -1,5 +1,6 @@
 
-  <?php include
+  <?php include 
+  
   'componets/connection.php';
   session_start();
   if (isset($_SESSION['user_id'])) {
@@ -28,7 +29,65 @@
   <?php include 'componets/header.php'; ?>
   <div class="main">
     <section class="home-section" >
-    <?php include './componets/slider.php'; ?>
+      <div class="slider" >
+        <div class="slider__slider slide1">
+          <div class="overlay"></div>
+          <div class="slide-detail" >
+            <h1>Lorem ipsum dolor sit</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+            <a href="view_products.php" class="btn">shop now</a>
+          </div>
+          <div class="hero-dec-top"></div>
+          <div class="hero-dec-bottom"></div>
+        </div>
+        <!-- slider end -->
+      <div class="slider__slider slide2">
+          <div class="overlay"></div>
+          <div class="slide-detail">
+            <h1>welcome to my shop</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+            <a href="view_products.php" class="btn">shop now</a>
+          </div>
+          <div class="hero-dec-top"></div>
+          <div class="hero-dec-bottom"></div>
+        </div>
+        <!-- slider end -->
+        <div class="slider__slider slide3">
+          <div class="overlay"></div>
+          <div class="slide-detail">
+            <h1>Lorem ipsum dolor sit</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+            <a href="view_products.php" class="btn">shop now</a>
+          </div>
+          <div class="hero-dec-top"></div>
+          <div class="hero-dec-bottom"></div>
+        </div>
+        <!-- slider end -->
+      <div class="slider__slider slide4">
+          <div class="overlay"></div>
+          <div class="slide-detail">
+            <h1>Lorem ipsum dolor sit</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+            <a href="view_products.php" class="btn">shop now</a>
+          </div>
+          <div class="hero-dec-top"></div>
+          <div class="hero-dec-bottom"></div>
+        </div>
+        <!-- slider end -->
+      <div class="slider__slider slide5">
+          <div class="overlay"></div>
+          <div class="slide-detail">
+            <h1>Lorem ipsum dolor sit</h1>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+            <a href="view_products.php" class="btn">shop now</a>
+          </div>
+          <div class="hero-dec-top"></div>
+          <div class="hero-dec-bottom"></div>
+        </div>
+        <!-- slider end -->
+        <div class="left-arrow"><i class="bx bxs-left-arrow"></i></div>
+        <div class="right-arrow"><i class="bx bxs-right-arrow"></i></div>
+      </div>
     </section>
     <!-- home slider end -->
     <section class="thumb">

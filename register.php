@@ -34,7 +34,7 @@
         }else{
             $insert_user = $conn->prepare("INSERT INTO users(name, email, password) VALUES(?, ?, ?)");
             $insert_user->execute([$name, $email, $pass]);
-            header(' location: home.php ');
+            header(' location: http://localhost/project_internet/home.php ');
             $select_user = $conn->prepare("SELECT * FROM users WHERE email = ? ");
             $select_user->execute([$email,]);
             $row =$select_user->fetch(PDO::FETCH_ASSOC);
@@ -63,7 +63,7 @@
     <div class ="main-container">
         <section class ="form-container">
             <div class ="title">
-                <img src ="c:\xampp\htdocs\E.Commerce\img\download.png">
+                <img src ="./img/download.png">
                 <h1> Register now </h1>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur odio eius nemo exercitationem dolore voluptates ab qui aspernatur dolorem. Labore porro repellendus corrupti hic soluta, est culpa ducimus rem expedita.</p>
             </div>
@@ -88,7 +88,7 @@
             </form>
         </section>
     </div>
-    <script src ="componets/sweetalert.js"></script>
+    <script src ="./componets/sweetalert.js"></script>
     <script src ="script.js"></script>
     <?php include 'componets/alert.php' ;?>
 </body>
