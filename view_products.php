@@ -2,7 +2,24 @@
 include 'componets/connection.php';
 ?>
 <style type="text/css">
-  <?php include './style.css' ?>
+  <?php include 'style.css' ?>
+</style>  
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 8 equal columns */
+    grid-gap: 10px;
+    /* Gap between images */
+  }
+
+  .gallery img {
+    width: 100%;
+    /* Make images fill the grid cell */
+    height: 300px;
+    /* Maintain aspect ratio */
+  }
 </style>
 
 <!DOCTYPE html>
@@ -26,6 +43,7 @@ include 'componets/connection.php';
     </div>
     <section class="products">
       <div class="box-container">
+      <!-- <div class="gallery"> -->
         <?php
         $select_product = $conn->prepare("SELECT * FROM products");
         $select_product->execute();
