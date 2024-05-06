@@ -1,5 +1,4 @@
-
-<?php  
+<?php
   include 'componets/connection.php';
   ?>
 <style type="text/css">
@@ -80,34 +79,35 @@
         </form>
     </div>
     <div class="address">
-             <div class="title">
-            <img src="img/download.png" class="logo">
-            <h1>contact detail</h1>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique explicabo accusantium placeat porro maiores, 
-            </p>
+            <div class="title">
+              <img src="img/download.png" class="logo">
+              <h1>contact detail</h1>
+              <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique explicabo accusantium placeat porro maiores, 
+              </p>
+            </div>
+            <div class="box-container">
+              <div class="box">
+                <i class ="bx bxs-map-pin"></i>
+                <div>
+                    <h4>address</h4>
+                    <p>1092 Merigold Lane, Coral Way</p>
                 </div>
-                <div class="box-container">
-                    <div class="box">
-                    <i class ="bx bxs-map-pin"></i>
-                    <div>
-                        <h4>address</h4>
-                        <p>1092 Merigold Lane, Coral Way</p>
-                    </div>
-                    </div>
-                    <div class="box">
-                    <i class ="bx bxs-phone-call"></i>
-                    <div>
-                        <h4>phone number</h4>
-                        <p>098807887</p>
-                    </div>
-                    </div>                    <div class="box">
-                    <i class ="bx bxs-map-pin"></i>
-                    <div>
-                        <h4>email</h4>
-                        <p>projectTeam@gmail.com</p>
-                    </div>
-                    </div>
+              </div>
+                <div class="box">
+                  <i class ="bx bxs-phone-call"></i>
+                  <div>
+                      <h4>phone number</h4>
+                      <p>098807887</p>
+                  </div>
                 </div>
+                <div class="box">
+                  <i class ="bx bxs-map-pin"></i>
+                  <div>
+                      <h4>email</h4>
+                      <p>projectTeam@gmail.com</p>
+                  </div>
+                </div>
+            </div>
         </div>
     <?php  include 'componets/footer.php'; ?>
   </div>
