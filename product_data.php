@@ -26,6 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       echo "Error uploading Product Information";
     }
     $stmt->close();
+  }
 }
 ?>
 <style type="text/css">
