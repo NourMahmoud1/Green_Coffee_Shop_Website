@@ -79,32 +79,6 @@
   ?>
 <style type="text/css">
   <?php include 'style.css' ?>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 1769994c8277c4363d195e3c0328cea7356122ff
-</style>  
-
-<style>
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    /* 8 equal columns */
-    grid-gap: 10px;
-    /* Gap between images */
-  }
-
-  .gallery img {
-    width: 100%;
-    /* Make images fill the grid cell */
-    height: 300px;
-    /* Maintain aspect ratio */
-  }
-<<<<<<< HEAD
->>>>>>> 1769994c8277c4363d195e3c0328cea7356122ff
-=======
->>>>>>> 1769994c8277c4363d195e3c0328cea7356122ff
 </style>
 
 <!DOCTYPE html>
