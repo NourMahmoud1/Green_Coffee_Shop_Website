@@ -79,9 +79,8 @@
   ?>
 <style type="text/css">
   <?php include 'style.css' ?>
-</style>
-
-<!DOCTYPE html>
+  </style>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -98,23 +97,23 @@
   <div class="title2">
     <a href="home.php">home</a><span>/our shop</span>
     </div>
-<<<<<<< HEAD
+
     <section class = "products">
       <div class = "box-container">
         <?php 
           $select_product = $conn->prepare("SELECT * FROM products" ) ;
           $select_product->execute() ;
-=======
+
     <div class="title2">
       <a href="home.php">home</a><span>/our shop</span>
     </div>
     <section class="products">
       <div class="box-container">
-      <!-- <div class="gallery"> -->
+       <div class="gallery">
         <?php
         $select_product = $conn->prepare("SELECT * FROM products");
         $select_product->execute();
->>>>>>> 1769994c8277c4363d195e3c0328cea7356122ff
+
 
           if($select_product->rowcount() > 0)
            {
