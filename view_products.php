@@ -80,7 +80,10 @@
 <style type="text/css">
   <?php include 'style.css' ?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 1769994c8277c4363d195e3c0328cea7356122ff
 </style>  
 
 <style>
@@ -98,6 +101,9 @@
     height: 300px;
     /* Maintain aspect ratio */
   }
+<<<<<<< HEAD
+>>>>>>> 1769994c8277c4363d195e3c0328cea7356122ff
+=======
 >>>>>>> 1769994c8277c4363d195e3c0328cea7356122ff
 </style>
 
