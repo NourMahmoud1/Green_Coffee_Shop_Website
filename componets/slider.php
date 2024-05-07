@@ -106,7 +106,7 @@ body {font-family: Verdana, sans-serif; margin:0} */
 </head>
 <body>
 
-<div class="slideshow-container" style="">
+<div class="slideshow-container" >
 
 <div class="mySlides fade" >
   <div class="numbertext">1 / 3</div>

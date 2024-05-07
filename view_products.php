@@ -79,6 +79,26 @@
   ?>
 <style type="text/css">
   <?php include 'style.css' ?>
+<<<<<<< HEAD
+=======
+</style>  
+
+<style>
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* 8 equal columns */
+    grid-gap: 10px;
+    /* Gap between images */
+  }
+
+  .gallery img {
+    width: 100%;
+    /* Make images fill the grid cell */
+    height: 300px;
+    /* Maintain aspect ratio */
+  }
+>>>>>>> 1769994c8277c4363d195e3c0328cea7356122ff
 </style>
 
 <!DOCTYPE html>
@@ -98,11 +118,23 @@
   <div class="title2">
     <a href="home.php">home</a><span>/our shop</span>
     </div>
+<<<<<<< HEAD
     <section class = "products">
       <div class = "box-container">
         <?php 
           $select_product = $conn->prepare("SELECT * FROM products" ) ;
           $select_product->execute() ;
+=======
+    <div class="title2">
+      <a href="home.php">home</a><span>/our shop</span>
+    </div>
+    <section class="products">
+      <div class="box-container">
+      <!-- <div class="gallery"> -->
+        <?php
+        $select_product = $conn->prepare("SELECT * FROM products");
+        $select_product->execute();
+>>>>>>> 1769994c8277c4363d195e3c0328cea7356122ff
 
           if($select_product->rowcount() > 0)
            {
