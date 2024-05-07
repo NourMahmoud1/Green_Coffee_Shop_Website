@@ -45,20 +45,20 @@ if (isset($_POST['add_to_cart'])) {
   $product_id = $_POST['product_id'];
   $qty = $_POST['qty'];
   $qty = filter_var($qty, FILTER_SANITIZE_STRING);
-  $varify_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ? AND product_id = ? ");
+  $varify_cart = $conn->prepare("SELECT * FROM cart WHERE user_id = ? AND product_id = ? ");
   $varify_cart->execute([$user_id, $product_id]);
-  $max_cart_items = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
+  $max_cart_items = $conn->prepare("SELECT * FROM cart WHERE user_id = ?");
   $max_cart_items->execute([$user_id]);
   if ($varify_cart->rowcount() > 0) {
-    $warning_msg[] = 'product is already in your CART';
+    $warning_msg[] = 'product is already in your wishlist';
   } else if ($max_cart_items->rowcount() > 20) {
     $warning_msg[] = 'cart is full';
   } else {
-    $select_price = $conn->prepare("SELECT * FROM `products` WHERE id = ? LIMIT 1");
+    $select_price = $conn->prepare("SELECT * FROM products WHERE id = ? LIMIT 1");
     $select_price->execute([$product_id]);
     $fetch_price = $select_price->fetch(PDO::FETCH_ASSOC);
 
-    $insert_cart = $conn->prepare("INSERT INTO `cart`(id,user_id,product_id,price,qty) VALUES(?,?,?,?,?)");
+    $insert_cart = $conn->prepare("INSERT INTO cart(id,user_id,product_id,price,qty) VALUES(?,?,?,?,?)");
     $insert_cart->execute([$id, $user_id, $product_id, $fetch_price['price'], $qty]);
     $succsss_msg[] = 'product added to cart';
   }
@@ -75,59 +75,55 @@ if (isset($_POST['add_to_cart'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
-  <title>Green coffee - shop page</title>
+  <title>Green coffee - product detail page</title>
 </head>
 
 <body>
   <?php include 'componets/header.php'; ?>
   <div class="main">
     <div Class="banner">
-      <h1>shop</h1>
+      <h1>product detail</h1>
     </div>
     <div class="title2">
-      <a href="home.php">home</a><span>/our shop</span>
+      <a href="home.php">home</a><span>/product detail</span>
     </div>
 
-    <section class="products">
-      <div class="box-container">
-        <?php
-        $select_product = $conn->prepare("SELECT * FROM products");
+    <section class="view_page">
+      <?php
+      if (isset($_GET['pid'])) {
+        $pid = $_GET['pid'];
+        $select_product = $conn->prepare("select * from `products` where id = '$pid'");
         $select_product->execute();
-        ?>
-        <?php
-        $select_product = $conn->prepare("SELECT * FROM products");
-        $select_product->execute();
+        if ($select_product->rowCount() > 0) {
+          while ($fetch_product = $select_product->fetch(PDO::FETCH_ASSOC)) {
 
-
-        if ($select_product->rowcount() > 0) {
-          while ($fetch_products = $select_product->fetch(PDO::FETCH_ASSOC)) {
-
-
-
-        ?>
-            <form action="" method="post" class="box">
-              <img src="image/<?= $fetch_products['image']; ?>" class="img">
-              <div class="button">
-                <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
-                <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
-                <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?> " class="bx bx-show"></a>
+      ?>
+            <form action="" method="post">
+              <img src="image/<?php echo $fetch_product['image']; ?>" alt="">
+              <div class="detail">
+                <div class="price">$<?php echo $fetch_product['price']; ?>/-</div>
+                <div class="name"><?php echo $fetch_product['name']; ?></div>
+                <div class="detail">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nisi dolorem sequi dignissimos,
+                    voluptates enim tempore error a deleniti minima, odio libero harum!
+                    Tempore eum odit obcaecati, a aut quasi error.
+                  </p>
+                </div>
+                <input type="hidden" name="product_id" value="<?php echo $fetch_product['id']; ?>">
+                <div class="button">
+                  <button type="submit" name="add_to_wishlist" class="btn">add to wishlist <i class="bx bx-heart"></i></button>
+                  <input type="hidden" name="qty" value="1" min="0" class="quantity">
+                  <button type="submit" name="add_to_cart" class="btn">add to cart <i class="bx bx-cart"></i></button>
+                </div>
               </div>
-              <h3 class="name"><?= $fetch_products['name']; ?></h3>
-              <input type="hidden" name="product_id" value="<?= $fetch_products['id']; ?>">
-              <div class="flex">
-                <p class="price">price <?= $fetch_products['price']; ?>/-</p>
-                <input type="number" name="qty" min="1" max="99" value="1" require maxlength="2" class="qty">
-              </div>
-              <a href="checkout.php?get_id=<?= $fetch_products['id']; ?> " class="btn">buy now</a>
-
             </form>
-        <?php
+      <?php
           }
-        } else {
-          echo '<p class ="empty">no products added yet !</p>';
         }
-        ?>
-      </div>
+      }
+      ?>
     </section>
 
     <?php include 'componets/footer.php'; ?>
