@@ -103,13 +103,7 @@
         <?php 
           $select_product = $conn->prepare("SELECT * FROM products" ) ;
           $select_product->execute() ;
-
-    <div class="title2">
-      <a href="home.php">home</a><span>/our shop</span>
-    </div>
-    <section class="products">
-      <div class="box-container">
-       <div class="gallery">
+        ?>
         <?php
         $select_product = $conn->prepare("SELECT * FROM products");
         $select_product->execute();
