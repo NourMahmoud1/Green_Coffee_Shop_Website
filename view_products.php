@@ -12,7 +12,8 @@
    if(isset($_POST['logout']))
   {
     session_destroy() ;
-    header("location : login.php") ;
+    header("location:login.php") ;
+    exit;
   }
 
   //adding products in wishlist
@@ -27,7 +28,7 @@
     $cart_num =$conn->prepare("SELECT * FROM cart WHERE user_id = ? AND product_id = ? ") ;
     $cart_num->execute([$user_id,$product_id]) ;
   
-    if($wishlist->rowcount() > 0 )
+    if($varify_wishlist->rowcount() > 0 )
     {
       $warning_msg[]='product is already in your wishlist' ;
     }else if($cart_num->rowcount() > 0)
@@ -60,7 +61,7 @@
      if($varify_cart->rowcount() > 0 )
      {
        $warning_msg[]='product is already in your wishlist' ;
-     }else if($max_cart_item->rowcount() > 20 )
+     }else if($max_cart_items->rowcount() > 20 )
      {
        $warning_msg[]='cart is full' ;
      }else
@@ -103,7 +104,7 @@
           $select_product = $conn->prepare("SELECT * FROM products" ) ;
           $select_product->execute() ;
 
-          if($select_product->rowcount > 0)
+          if($select_product->rowcount() > 0)
            {
             while ($fetch_products = $select_product->fetch(PDO::FETCH_ASSOC)) {
                 

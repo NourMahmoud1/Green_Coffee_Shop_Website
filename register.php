@@ -34,7 +34,7 @@
         }else{
             $insert_user = $conn->prepare("INSERT INTO users(name, email, password) VALUES(?, ?, ?)");
             $insert_user->execute([$name, $email, $pass]);
-            header(' location: http://localhost/project_internet/home.php ');
+            header("location:login.php ");
             $select_user = $conn->prepare("SELECT * FROM users WHERE email = ? ");
             $select_user->execute([$email,]);
             $row =$select_user->fetch(PDO::FETCH_ASSOC);

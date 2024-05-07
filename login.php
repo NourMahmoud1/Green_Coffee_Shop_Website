@@ -22,7 +22,8 @@ if (isset($_POST['submit'])) {
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['user_name'] = $row['name'];
         $_SESSION['user_email'] = $row['email'];
-        header('location: http://localhost/Green_Coffee_Shop_Websit/home.php');
+        header("location:home.php");
+        exit ;
     } else {
         $message[] = 'incorrect username or password';
     }
