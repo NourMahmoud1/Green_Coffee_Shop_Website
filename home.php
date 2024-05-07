@@ -190,11 +190,8 @@ if (isset($_POST['logout'])) {
         </div>
       </div>
     </section>
-    <div class="testimonial-container">
-      <div class="container">
         <?php include 'componets/footer.php'; ?>
-      </div>
-    </div>
+
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
   <script src="script.js"></script>

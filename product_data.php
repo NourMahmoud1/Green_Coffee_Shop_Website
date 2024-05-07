@@ -75,11 +75,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <textarea class="form-control  sect" name="detail" id="validationTextarea" placeholder="Product detail" required></textarea>
         <div class="sect">
-          <div class="custom-file ">
-            <input type="file" class="custom-file-input" name="uploadfile" required>
-            <label class="custom-file-label" for="customFile">Choose file</label>
+          <div class="custom-file">
+            <input type="file" class="custom-file-input" name="uploadfile" id="customFile" required>
+            <label class="custom-file-label" for="customFile">Choose Image</label>
           </div>
+          <!-- <div class="custom-file">
+            <input type="file" class="custom-file-input is-invalid" id="validatedInputGroupCustomFile" required>
+            <label class="custom-file-label" for="validatedInputGroupCustomFile">Choose file...</label>
+          </div> -->
         </div>
+
 
         <!-- Add other form fields if needed -->
         <input type="submit" value="Upload" class="btn btn-primary sect" />
