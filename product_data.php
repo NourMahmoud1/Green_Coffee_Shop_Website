@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Move the uploaded file to the server
   if (move_uploaded_file($_FILES["uploadfile"]["tmp_name"], $target_path)) {
     // Insert the filename into the database and product information
-    $stmt = $conn->prepare("INSERT INTO products (image, name, price, product_details) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO products (image, name, price, product_detail) VALUES (?, ?, ?, ?)");
     $stmt->bind_param("ssss", $filename, $name, $price, $detail);
 
     if ($stmt->execute()) {
