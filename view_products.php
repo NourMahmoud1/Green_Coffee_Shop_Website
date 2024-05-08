@@ -12,6 +12,7 @@ if (isset($_POST['logout'])) {
   exit;
 }
 
+
 //adding products in wishlist
 
 if (isset($_POST['add_to_wishlist'])) {
