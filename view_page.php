@@ -32,8 +32,10 @@ if (isset($_POST['add_to_wishlist'])) {
     $select_price->execute([$product_id]);
     $fetch_price = $select_price->fetch(PDO::FETCH_ASSOC);
 
-    $insert_wishlist = $conn->prepare("INSERT INTO wishlist(id,user_id,product_id,price) VALUES(?,?,?,?)");
-    $insert_wishlist->execute([$id, $user_id, $product_id, $fetch_price['price']]);
+    // $insert_wishlist = $conn->prepare("INSERT INTO wishlist(id,user_id,product_id,price) VALUES(?,?,?,?)");
+    // $insert_wishlist->execute([$id, $user_id, $product_id, $fetch_price['price']]);
+    $insert_wishlist = $conn->prepare("INSERT INTO wishlist(user_id,product_id,price) VALUES(?,?,?)");
+    $insert_wishlist->execute([$user_id, $product_id, $fetch_price['price']]);
     $succsss_msg[] = 'product added to wishlist';
   }
 }
@@ -58,8 +60,10 @@ if (isset($_POST['add_to_cart'])) {
     $select_price->execute([$product_id]);
     $fetch_price = $select_price->fetch(PDO::FETCH_ASSOC);
 
-    $insert_cart = $conn->prepare("INSERT INTO cart(id,user_id,product_id,price,qty) VALUES(?,?,?,?,?)");
-    $insert_cart->execute([$id, $user_id, $product_id, $fetch_price['price'], $qty]);
+    // $insert_cart = $conn->prepare("INSERT INTO cart(id,user_id,product_id,price,qty) VALUES(?,?,?,?,?)");
+    // $insert_cart->execute([$id, $user_id, $product_id, $fetch_price['price'], $qty]);
+    $insert_cart = $conn->prepare("INSERT INTO cart(user_id,product_id,price,qty) VALUES(?,?,?,?)");
+    $insert_cart->execute([$user_id, $product_id, $fetch_price['price'], $qty]);
     $succsss_msg[] = 'product added to cart';
   }
 }
