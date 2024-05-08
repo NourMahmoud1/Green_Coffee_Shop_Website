@@ -12,7 +12,8 @@
   $randomString= $chars[mt_rand(0,$charLength-1)];
 }
   return $randomString;*/
-  return uniqid();
+  // return uniqid();
+  return md5(uniqid(mt_rand(), true));
 }
 
 ?>
