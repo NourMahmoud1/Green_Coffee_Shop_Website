@@ -18,7 +18,7 @@ if (isset($_POST['logout'])) {
 if (isset($_POST['add_to_wishlist'])) {
   $id = unique_id();
   $product_id = $_POST['product_id'];
-  $varify_wishlist = $conn->prepare("SELECT * FROM wishlist WHERE user_id = ? AND product_id = ? " );
+  $varify_wishlist = $conn->prepare("SELECT * FROM wishlist WHERE user_id = ? AND product_id = ? ");
   $varify_wishlist->execute([$user_id, $product_id]);
 
   $cart_num = $conn->prepare("SELECT * FROM cart WHERE user_id = ? AND product_id = ? ");
@@ -37,7 +37,7 @@ if (isset($_POST['add_to_wishlist'])) {
     // $insert_wishlist->execute([$id, $user_id, $product_id, $fetch_price['price']]);
 
     $insert_wishlist = $conn->prepare("INSERT INTO wishlist(user_id,product_id,price) VALUES(?,?,?)");
-    $insert_wishlist->execute([ $user_id, $product_id, $fetch_price['price']]);
+    $insert_wishlist->execute([$user_id, $product_id, $fetch_price['price']]);
     $succsss_msg[] = 'product added to wishlist';
   }
 }
@@ -107,11 +107,13 @@ if (isset($_POST['add_to_cart'])) {
           while ($fetch_products = $select_product->fetch(PDO::FETCH_ASSOC)) {
         ?>
             <form action="" method="post" class="box">
-              <img src="image/<?= $fetch_products['image']; ?>" class="img">
-              <div class="button">
-                <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
-                <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
-                <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?> " class="bx bx-show"></a>
+              <div class="content-image-button">
+                <img src="image/<?= $fetch_products['image']; ?>" class="img">
+                <div class="button">
+                  <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
+                  <button type="submit" name="add_to_wishlist"><i class="bx bx-heart"></i></button>
+                  <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?> " class="bx bx-show"></a>
+                </div>
               </div>
               <h3 class="name"><?= $fetch_products['name']; ?></h3>
               <input type="hidden" name="product_id" value="<?= $fetch_products['id']; ?>">

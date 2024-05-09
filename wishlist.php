@@ -32,8 +32,8 @@ if (isset($_POST['add_to_cart'])) {
     $select_price->execute([$product_id]);
     $fetch_price = $select_price->fetch(PDO::FETCH_ASSOC);
 
-    $insert_cart = $conn->prepare("INSERT INTO cart(id,user_id,product_id,price,qty) VALUES(?,?,?,?,?)");
-    $insert_cart->execute([$id, $user_id, $product_id, $fetch_price['price'], $qty]);
+    $insert_cart = $conn->prepare("INSERT INTO cart(user_id,product_id,price,qty) VALUES(?,?,?,?)");
+    $insert_cart->execute([$user_id, $product_id, $fetch_price['price'], $qty]);
     $succsss_msg[] = 'product added to cart';
   }
 }
@@ -101,12 +101,14 @@ if (isset($_POST['delete_item'])) {
         ?>
               <form method="post" action="" class="box">
                 <input type="hidden" name="wishlist_id" value="<?= $fetch_wishlist['id']; ?>">
-                <img class="img" src="image/<?= $fetch_products['image']; ?>">
-                <div class="button">
-                  <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
-                  <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" class="bx bx-show">
-                  </a>
-                  <button type="submit" name="delete_item" onclick="return confirm('delete this item')"><i class="bx bx-x"></i></button>
+                <div class="content-image-button">
+                  <img class="img" src="image/<?= $fetch_products['image']; ?>">
+                  <div class="button">
+                    <button type="submit" name="add_to_cart"><i class="bx bx-cart"></i></button>
+                    <a href="view_page.php?pid=<?php echo $fetch_products['id']; ?>" class="bx bx-show">
+                    </a>
+                    <button type="submit" name="delete_item" onclick="return confirm('delete this item')"><i class="bx bx-x"></i></button>
+                  </div>
                 </div>
                 <h3 class="name"><?= $fetch_products['name']; ?></h3>
                 <input type="hidden" name="product_id" value="<?= $fetch_products['id']; ?>">
