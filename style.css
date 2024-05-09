@@ -876,7 +876,8 @@ footer .bottom-footer {
 }
 /*--------------view product section-------------*/
 .products .box-container {
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  /* grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); */
+  grid-template-columns: repeat(3,1fr);
   justify-content: center;
   gap: 15px;
 }
@@ -886,10 +887,12 @@ footer .bottom-footer {
   padding: 2rem 1rem;
   margin: 1rem;
   position: relative;
+  max-width: 325px;
 }
 .products .box-container .box .img {
   width: 80%;
   height: auto;
+  min-height: 200px;
 }
 .products .box-container .box .name {
   font-size: 1.2rem;
