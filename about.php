@@ -1,6 +1,11 @@
 <?php
 include 'componets/connection.php';
 ?>
+<?php
+session_start(); // Start the session at the beginning of your script
+
+// Your existing code follows...
+?>
 <style type="text/css">
   <?php include 'style.css' ?>
 </style>
