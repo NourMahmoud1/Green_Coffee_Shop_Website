@@ -1,177 +1,200 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-/* * {box-sizing: border-box}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    /* * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0} */
-.mySlides {display: none;
+    .mySlides {
+      display: none;
 
-}
-.img {
-  vertical-align: middle;
-  height: 80vh;
+    }
 
-}
+    .img {
+      vertical-align: middle;
+      height: 80vh;
 
-/* Slideshow container */
-.slideshow-container {
-  /* max-width: 1000px; */
-  /* height: 80vh; */
+    }
 
-  position: relative;
-  margin: auto;
-}
+    /* Slideshow container */
+    .slideshow-container {
+      /* max-width: 1000px; */
+      /* height: 80vh; */
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  margin-top: -22px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-}
+      position: relative;
+      margin: auto;
+    }
 
-/* Position the "next button" to the right */
-.next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
-}
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
 
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
-}
+    /* On hover, add a black background color with a little bit see-through */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
 
-/* Number text (1/3 etc) */
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
-}
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
 
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
 
-.active, .dot:hover {
-  background-color: #717171;
-}
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
 
-/* Fading animation */
-.fade {
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
 
-@keyframes fade {
-  from {opacity: .8} 
-  to {opacity: 1}
-}
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 400px) {
-  .prev, .next,.text {font-size: 11px;}
-  .img{ height: 55vh;}
-}
-</style>
+    @keyframes fade {
+      from {
+        opacity: .8
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 400px) {
+
+      .prev,
+      .next,
+      .text {
+        font-size: 11px;
+      }
+
+      .img {
+        height: 55vh;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="slideshow-container" >
+  <div class="slideshow-container">
 
-<div class="mySlides fade" >
-  <div class="numbertext">1 / 3</div>
-  <img class="img" src="./img/slider.jpg" style="width:100%" alt="">
-</div>
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <img class="img" src="./img/slider.jpg" style="width:100%" alt="">
+    </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img class="img" src="./img/1.png" style="width:100%" alt="">
-</div>  
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img class="img" src="./img/1.png" style="width:100%" alt="">
+    </div>
 
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img class="img" src="./img/9.jpg" style="width:100%" alt="">
-  
-</div>
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <img class="img" src="./img/9.jpg" style="width:100%" alt="">
 
-<a class="prev" onclick="plusSlides(-1)">❮</a>
-<a class="next" onclick="plusSlides(1)">❯</a>
+    </div>
 
-</div>
-<br>
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
 
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
+  </div>
+  <br>
 
-<script>
-let slideIndex = 1;
-showSlides(slideIndex);
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
 
-setInterval(function plusSlides(n = 1) {
-  showSlides(slideIndex += n);
-},5000);
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-// setInterval(plusSlides, 6000);
+    setInterval(function plusSlides(n = 1) {
+      showSlides(slideIndex += n);
+    }, 5000);
 
-/*-----------------reset time to scroll right-----------------*/
-// function resetTimer() {
-//   // clearInterval(timerI);
-//   timerI = setInterval(showSlides(), 7000);
-// }
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-}
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    // setInterval(plusSlides, 6000);
 
-
-</script>
+    /*-----------------reset time to scroll right-----------------*/
+    // function resetTimer() {
+    //   // clearInterval(timerI);
+    //   timerI = setInterval(showSlides(), 7000);
+    // }
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {
+        slideIndex = 1
+      }
+      if (n < 1) {
+        slideIndex = slides.length
+      }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
 
 </body>
-</html> 
+
+</html>
