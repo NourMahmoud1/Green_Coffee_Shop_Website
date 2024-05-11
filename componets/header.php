@@ -1,3 +1,14 @@
+<?php
+session_start(); // Start the session
+
+// Check if the user is logged in and set the $user_id variable accordingly
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
+
+// Connect to the database
+// Replace 'your_database_credentials' with your actual database connection details
+$conn = new PDO("mysql:host=localhost;dbname=your_database_name", "username", "password");
+
+?>
 <header class="header">
   <div class="flex">
     <a href="home.php" class="logo"><img src="img/logo.jpg" alt=""></a>
