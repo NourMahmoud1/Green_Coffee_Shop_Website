@@ -1,8 +1,3 @@
-<?php
-session_start(); // Start the session at the beginning of your script
-
-// Your existing code follows...
-?>
 <header class="header">
   <div class="flex">
     <a href="home.php" class="logo"><img src="img/logo.jpg" alt=""></a>
