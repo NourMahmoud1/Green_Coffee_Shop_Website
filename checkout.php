@@ -25,7 +25,7 @@ if (isset($_POST['place_order'])){
     $method = $_POST['method'];
     $method = filter_var($method, FILTER_SANITIZE_STRING);
 
-    $varify_cart = $conn->prepare("SELECT * FROM 'cart' WHERE user_id=?");
+    $varify_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id=?");
     $varify_cart->execute([$user_id]);
 
     if(isset($_GET['get_id'])){
@@ -33,7 +33,7 @@ if (isset($_POST['place_order'])){
         $get_product->execute([$_GET['get_id']]);
         if($get_product->rowCount() > 0){
             while($fetch_p = $get_product->fetch(PDO::FETCH_ASSOC)){
-                $insert_order = $conn->prepare("INSERT INTO 'orders'(id, user_id, name, number, email, address, 
+                $insert_order = $conn->prepare("INSERT INTO `orders`(id, user_id, name, number, email, address, 
                 address_type, $method, product_id, price, qty) VALUES(?,?,?,?,?,?,?,?,?)");
                 $insert_order->execute([unique_id(), $user_id, $name, $number, $email, $address, $address_type, $method, $fetch_p['id'], $fetch_p['price'], 1]);
                 header('location: order.php');
@@ -43,13 +43,13 @@ if (isset($_POST['place_order'])){
         }
     }elseif($varify_cart->rowCount()>0) {
         while($f_cart = $varify_cart->fetch((PDO::FETCH_ASSOC))){
-            $insert_order = $conn->prepare("INSERT INTO 'orders'(id, user_id, name, number, email, address, 
+            $insert_order = $conn->prepare("INSERT INTO `orders`(id, user_id, name, number, email, address, 
             address_type, $method, product_id, price, qty) VALUES(?,?,?,?,?,?,?,?,?)");
             $insert_order->execute([unique_id(), $user_id, $name, $number, $email, $address, $address_type, $method, $fetch_p['id'], $f_cart['price'], $f_cart['qty']]);
             header('location: order.php');
         }
         if ($insert_order) {
-            $delete_cart_id = $conn->prepare("DELETE FROM 'cart' WHERE user_id = ?");
+            $delete_cart_id = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
             $delete_cart_id->execute([$user_id]);
             header('location: order.php');
         }
@@ -160,7 +160,7 @@ if (isset($_POST['place_order'])){
                     <?php
                         $grand_total =0;
                         if (isset($_GET['get_id'])){
-                            $select_get = $conn->prepare("SELECT * FROM 'products' WHERE id=? ");
+                            $select_get = $conn->prepare("SELECT * FROM `products` WHERE id=? ");
                             $select_get->execute([$_GET['get_id']]);
                             while($fetch_get = $select_get->fetch(PDO::FETCH_ASSOC)){
                                 $sub_total = $fetch_get['price'];
@@ -176,11 +176,11 @@ if (isset($_POST['place_order'])){
                     <?php 
                             }
                         }else{
-                            $select_cart = $conn->prepare("SELECT * FROM 'cart' WHERE user_id=?");
+                            $select_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id=?");
                             $select_cart->execute([$user_id]);
-                            if($select_get->rowcount()>0){
+                            if($select_get->rowCount()>0){
                                 while($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)){
-                                    $select_products=$conn->prepare("SELECT * FROM 'products' WHERE id=?");
+                                    $select_products=$conn->prepare("SELECT * FROM `products` WHERE id=?");
                                     $select_products->execute([$fetch_cart['product_id']]);
                                 $fetch_product = $select_products->fetch(PDO::FETCH_ASSOC);
                                 $sub_total = ($fetch_cart['qty'] * $fetch_product['price']);
