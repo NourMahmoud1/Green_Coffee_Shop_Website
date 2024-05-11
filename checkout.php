@@ -176,12 +176,12 @@ if (isset($_POST['place_order'])){
                     <?php 
                             }
                         }else{
-                            $select_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id=?");
-                            $select_cart->execute([$user_id]);
-                            if($select_get->rowCount()>0){
-                                while($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)){
-                                    $select_products=$conn->prepare("SELECT * FROM `products` WHERE id=?");
-                                    $select_products->execute([$fetch_cart['product_id']]);
+                        $select_cart = $conn->prepare("SELECT * FROM `cart` WHERE user_id=?");
+                        $select_cart->execute([$user_id]);
+                        if ($select_cart->rowCount() > 0) {
+                            while ($fetch_cart = $select_cart->fetch(PDO::FETCH_ASSOC)) {
+                                $select_products = $conn->prepare("SELECT * FROM `products` WHERE id=?");
+                                $select_products->execute([$fetch_cart['product_id']]);
                                 $fetch_product = $select_products->fetch(PDO::FETCH_ASSOC);
                                 $sub_total = ($fetch_cart['qty'] * $fetch_product['price']);
                                 $grand_total += $sub_total;
