@@ -1,8 +1,3 @@
-<?php
-session_start(); // Start the session at the beginning of your script
-
-// Your existing code follows...
-?>
 <header class="header">
   <div class="flex">
     <a href="home.php" class="logo"><img src="img/logo.jpg" alt=""></a>
@@ -35,16 +30,13 @@ session_start(); // Start the session at the beginning of your script
 
       // Rest of your code...
       ?>
+      <a href="wishlist.php" class="cart-btn"><i class="bx bx-heart"></i><sup><?= $total_wishlist_items  ?></sup></a>
       <a href="cart.php" class="cart-btn"><i class="bx bx-cart-download"></i><sup><?= $total_cart_items  ?></sup></a>
       <i class="bx bx-list-plus" id="menu-btn" style="font-size: 2rem;"></i>
     </div>
     <div class="user-box">
-      <!-- <p>username : <span><?php //echo $_SESSION['user_name']; 
-                                ?> </span></p>
-      <p>Email : <span> <?php //echo $_SESSION['user_email']; 
-                        ?> </span></p> -->
-      <p>username : <span> <?php echo isset($_SESSION['user_name']) ? $_SESSION['user_name'] : ''; ?> </span></p>
-      <p>Email : <span> <?php echo isset($_SESSION['user_email']) ? $_SESSION['user_email'] : ''; ?> </span></p>
+      <p>username : <span> <?php echo $_SESSION['user_name']; ?> </span></p>
+      <p>Email : <span> <?php echo $_SESSION['user_email']; ?> </span></p>
       <a href="login.php" class="btn">login</a>
       <a href="register.php" class="btn">register</a>
       <form action="" method="post">
