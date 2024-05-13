@@ -38,12 +38,12 @@ if (isset($_POST['logout'])) {
     </div>
 
     <section class="products">
+      <div class="title">
+        <img src="img/download.png" class="logo">
+        <h1>my order</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aut, iusto voluptate delectus est voluptatibus, doloribus vero pariatur officiis, atque nostrum necessitatibus maxime amet molestias. Quis placeat numquam consequuntur deleniti.</p>
+      </div>
       <div class="box-container">
-        <div class="title">
-          <img src="img/download.png" class="logo">
-          <h1>my order</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit aut, iusto voluptate delectus est voluptatibus, doloribus vero pariatur officiis, atque nostrum necessitatibus maxime amet molestias. Quis placeat numquam consequuntur deleniti.</p>
-        </div>
         <div class="box-container">
           <?php
 
@@ -66,7 +66,7 @@ if (isset($_POST['logout'])) {
                       <img src="image/<?php echo $fetch_products['image']; ?>" class="img">
                       <div class="row">
                         <h3 class="name"><?php echo $fetch_products['name']; ?></h3>
-                        <p class="price">price : <?php echo $fetch_orders['price']; ?> x <?php $fetch_orders['qty']; ?></p>
+                        <p class="price">price : <?php echo $fetch_orders['price']; ?> x <?= $fetch_orders['qty']; ?></p>
                         <p class="status" style="color : <?php if ($fetch_orders['status'] == 'delivered') {
                                                             echo 'green';
                                                           } elseif ($fetch_orders['status'] == 'cancaled') {
