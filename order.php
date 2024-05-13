@@ -47,11 +47,11 @@ if (isset($_POST['logout'])) {
         <div class="box-container">
           <?php
 
-          $select_orders = $conn->prepare("SELECT * FROM orders WHERE user_id = ? ORDER BY date DESC ");
+          $select_orders = $conn->prepare("SELECT * FROM `orders` WHERE user_id = ? ORDER BY date DESC ");
           $select_orders->execute([$user_id]);
           if ($select_orders->rowcount() > 0) {
             while ($fetch_orders = $select_orders->fetch(PDO::FETCH_ASSOC)) {
-              $select_products = $conn->prepare("SELECT * FROM products WHERE id = ?");
+              $select_products = $conn->prepare("SELECT * FROM `products` WHERE id = ?");
               $select_products->execute([$fetch_orders['product_id']]);
               if ($select_products->rowcount() > 0) {
                 while ($fetch_products = $select_products->fetch(PDO::FETCH_ASSOC)) {
@@ -61,12 +61,12 @@ if (isset($_POST['logout'])) {
                   <div class="box" <?php if ($fetch_orders['status'] == 'cancle') {
                                       echo ' style = "border:2px solid red"; ';
                                     } ?>>
-                    <a href="view_order.php?get_id= <?php $fetch_orders['id']; ?>">
-                      <p class="date"><i class="bi bi-calender-fill"></i><span><?php $fetch_orders['date']; ?></span></p>
-                      <img src="image/<?php $fetch_products['image']; ?>" class="image">
+                    <a href="view_order.php?get_id= <?php echo $fetch_orders['id']; ?>">
+                      <p class="date"><i class="bi bi-calender-fill"></i><span><?php echo $fetch_orders['date']; ?></span></p>
+                      <img src="image/<?php echo $fetch_products['image']; ?>" class="img">
                       <div class="row">
-                        <h3 class="name"><?php $fetch_products['name']; ?></h3>
-                        <p class="price">price : <?php $fetch_orders['price']; ?> x <?php $fetch_orders['qty']; ?></p>
+                        <h3 class="name"><?php echo $fetch_products['name']; ?></h3>
+                        <p class="price">price : <?php echo $fetch_orders['price']; ?> x <?php $fetch_orders['qty']; ?></p>
                         <p class="status" style="color : <?php if ($fetch_orders['status'] == 'delivered') {
                                                             echo 'green';
                                                           } elseif ($fetch_orders['status'] == 'cancaled') {

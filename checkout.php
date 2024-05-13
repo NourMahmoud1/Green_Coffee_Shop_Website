@@ -36,8 +36,8 @@ if (isset($_POST['place_order'])){
         $get_product->execute([$_GET['get_id']]);
         if($get_product->rowCount() > 0){
             $fetch_p = $get_product->fetch(PDO::FETCH_ASSOC); // Fetch product details
-            $insert_order = $conn->prepare("INSERT INTO `orders`(id, user_id, name, number, email, address, address_type, method, product_id, price, qty) VALUES(?,?,?,?,?,?,?,?,?,?,?)");
-            $insert_order->execute([unique_id(), $user_id, $name, $number, $email, $address, $address_type, $method, $fetch_p['id'], $fetch_p['price'], 1]);
+            $insert_order = $conn->prepare("INSERT INTO `orders`( user_id, name, number, email, address, address_type, method, product_id, price, qty) VALUES(?,?,?,?,?,?,?,?,?,?)");
+            $insert_order->execute([ $user_id, $name, $number, $email, $address, $address_type, $method, $fetch_p['id'], $fetch_p['price'], 1]);
             header('location: order.php');
         }else{
             $warning_msg[] = 'something went wrong';
@@ -60,28 +60,10 @@ if (isset($_POST['place_order'])){
     }
 }
 ?>
-        }
-    }elseif($varify_cart->rowCount()>0) {
-        while($f_cart = $varify_cart->fetch((PDO::FETCH_ASSOC))){
-            $insert_order = $conn->prepare("INSERT INTO `orders`( user_id, name, number, email, address, 
-            address_type, $method, product_id, price, qty) VALUES(?,?,?,?,?,?,?,?)");
-            $insert_order->execute([ $user_id, $name, $number, $email, $address, $address_type, $method, $fetch_p['id'], $f_cart['price'], $f_cart['qty']]);
-            header('location: order.php');
-        }
-        if ($insert_order) {
-            $delete_cart_id = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
-            $delete_cart_id->execute([$user_id]);
-            header('location: order.php');
-        }
-    }else{
-        $warning_msg[] = 'something went wrong';
-    }
-
-}
+        
 
 
 
-?>
 <style type="text/css">
   <?php include 'style.css' ?>
 </style>
