@@ -1029,12 +1029,12 @@ footer .bottom-footer {
 .products .box-container .box {
   box-shadow: var(--box-shadow);
   border-radius: 1rem;
-  padding: 2rem 1rem;
-  margin: 1rem;
+  padding: 1rem 0.5rem;
+  margin: 0.5rem;
   position: relative;
   max-width: 325px;
   display: grid;
-  grid-template-rows: max-content 20px 1fr;
+  /* grid-template-rows: max-content 20px 1fr; */
 }
 
 .products .box-container .box .img {

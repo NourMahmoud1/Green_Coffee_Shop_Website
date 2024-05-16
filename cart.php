@@ -12,14 +12,14 @@ if (isset($_POST['logout'])) {
   exit;
 }
 // update product in cart
-if(isset($_POST['update_cart'])){
+if (isset($_POST['update_cart'])) {
   $cart_id = $_POST['cart_id'];
-  $cart_id = filter_var($cart_id,FILTER_SANITIZE_STRING);
+  $cart_id = filter_var($cart_id, FILTER_SANITIZE_STRING);
   $qty = $_POST['qty'];
-  $qty = filter_var($qty,FILTER_SANITIZE_STRING);
+  $qty = filter_var($qty, FILTER_SANITIZE_STRING);
 
   $update_qty = $conn->prepare("UPDATE `cart` SET qty = ? WHERE id = ?");
-  $update_qty->execute([$qty,$cart_id]);
+  $update_qty->execute([$qty, $cart_id]);
 
   $succsss_msg[] = 'cart quantity updated successfully';
 }
@@ -44,21 +44,19 @@ if (isset($_POST['delete_item'])) {
     $warning_msg[] = "cart item already deleted";
   }
 }
-  // empty cart
-  if(isset($_POST['empty_cart'])){
-    $varify_empty_item = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
-    $varify_empty_item->execute([$user_id]);
+// empty cart
+if (isset($_POST['empty_cart'])) {
+  $varify_empty_item = $conn->prepare("SELECT * FROM `cart` WHERE user_id = ?");
+  $varify_empty_item->execute([$user_id]);
 
-    if($varify_empty_item->rowCount() > 0){
-      $delete_cart_id = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
-      $delete_cart_id->execute([$user_id]);
-      $succsss_msg[] = "empty successfully";
-
-    }
-    else{
-      $warning_msg[]='cart item alredy deleted';
-    }
+  if ($varify_empty_item->rowCount() > 0) {
+    $delete_cart_id = $conn->prepare("DELETE FROM `cart` WHERE user_id = ?");
+    $delete_cart_id->execute([$user_id]);
+    $succsss_msg[] = "empty successfully";
+  } else {
+    $warning_msg[] = 'cart item alredy deleted';
   }
+}
 ?>
 <style type="text/css">
   <?php include 'style.css' ?>
@@ -71,6 +69,24 @@ if (isset($_POST['delete_item'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
   <title>Green coffee - cart page</title>
+  <style>
+    .cart-total {
+      text-align: center;
+      padding: 1rem;
+      box-shadow: var(--box-shadow);
+      margin: 25px;
+    }
+
+    .cart-total p {
+      font-size: 25px;
+      margin: 10px;
+      text-transform: capitalize;
+    }
+
+    .cart-total p span {
+      color: var(--green);
+    }
+  </style>
 </head>
 
 <body>
@@ -104,7 +120,7 @@ if (isset($_POST['delete_item'])) {
                 <img class="img" src="image/<?= $fetch_products['image']; ?>">
                 <h3 class="name"><?= $fetch_products['name']; ?></h3>
                 <div class="flex">
-                  <p class="price">price $<?= $fetch_products['price']; ?>/-</p>
+                  <p class="price">price $ <?= $fetch_products['price']; ?>/-</p>
                   <input type="number" name="qty" class="qty" required min="1" value="<?= $fetch_cart['qty']; ?>" max="99" maxlength="2">
                   <button type="submit" name="update_cart" class="bx bxs-edit fa-edit"></button>
                 </div>
@@ -128,14 +144,14 @@ if (isset($_POST['delete_item'])) {
       <?php
       if ($grand_total != 0) {
       ?>
-        <div class="cart-total">
-          <p>total amount payable : <span>$<? $grand_total; ?> /-</span></p>
+        <div class="cart-total" style="">
+          <p>total amount payable : <span>$ <?= $grand_total; ?> /-</span></p>
           <div class="button">
             <form action="" method="post">
               <button type="submit" name="empty_cart" class="btn" onclick="return confirm('are you sure to empty your cart')">empty cart</button>
 
+              <a href="checkout.php" class="btn">proceed to checkout</a>
             </form>
-            <a href="checkout.php" class="btn">proceed to checkout</a>
           </div>
         </div>
       <?php } ?>
